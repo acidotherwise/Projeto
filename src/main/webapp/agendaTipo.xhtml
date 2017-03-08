@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastro de Tipo de Agendamento</title>
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewAction action="#{agendaTipoBeans.consultar}" />
+	</f:metadata>
+	<ui:composition template="/index.xhtml">
+		<ui:define name="centro">
+			<h:form id="frm">
+				<p:panel>
+					<div align="center">
+						<h:outputLabel value="Cadastro de Tipo de Agendamento" style="align-self: center " />
+					</div>
+				</p:panel>
+				<br />
+
+				<p:messages id="messages" autoUpdate="true" closable="true"
+					style="font-size: 70%" />
+			
+				
+				<p:dataTable var="agendaTipo" value="#{agendaTipoBeans.tipoAgendamento}" rows="9"
+					paginator="true" paginatorPosition="bottom"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15,20" style="font-size: 70%">
+					<p:column headerText="Codigo" width="25" sortBy="#{agendaTipo.id}">
+						<h:outputText value="#{agendaTipo.id}" />
+					</p:column>
+					<p:column headerText="Descrição" width="350"
+						sortBy="#{agendaTipo.nome}">
+						<h:outputText value="#{agendaTipo.nome}" />
+		
+					</p:column>
+					<div align="center">
+						<p:column headerText="" width="2">
+							<p:commandButton icon="ui-icon-pencil" title="Editar"
+								actionListener="#{agendaTipoBeans.dialogTipoAgendamento()}" ajax="false">
+								<f:param name="id" value="#{agendaTipo.id}" />
+								
+							</p:commandButton>
+						</p:column>
+					</div>
+					<p:column headerText="" width="2">
+						<p:commandButton icon="ui-icon-trash" title="Excluir" process="@this" action="#{agendaTipoCadastroBeans.excluir()}" ajax="false">
+							<f:setPropertyActionListener value="#{agendaTipo}"
+								target="#{agendaTipoCadastroBeans.tipoAgendamentoSelecionado}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<br />
+				<p:panel style="border: 1">
+					<p:commandButton icon="ui-icon-plusthick" value="Inserir"
+						actionListener="#{agendaTipoBeans.dialogTipoAgendamento()}" ajax="false" />
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+

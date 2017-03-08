@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript"></script>
+		<link rel="shortcut icon" href="logo.ico" />
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>ERP - Instituto da Face Clinicas Odontológicas</title>
+		</f:facet>
+		<style>
+.ui-dialog-content {
+	overflow-y: hidden !important;
+}
+</style>
+	</h:head>
+
+	<h:body>
+
+		<p:layout fullPage="true">
+			<p:layoutUnit position="north" size="85" resizable="true"
+				closable="true" collapsible="true">
+				<p:graphicImage url="logo.png" width="100" />
+				<div style="float: right;">
+					<p:commandButton id="Sair" value="Sair" action="/j_spring_security_logout" />
+				</div>
+			</p:layoutUnit>
+			<p:layoutUnit position="south" size="50" closable="true"
+				collapsible="true">
+
+				<h:outputLabel
+					value="https://www.institutodaface.com.br - suport@infaerp.com.br"
+					style="font-size: 50%" />
+				<div style="float: right;">
+					<h:outputLabel
+						value="PRODUTO LICENCIADO - REDE INSTITUTO DA FACE - PROIBIDA A DISTRIBUIÇAO SEM AUTORIZAÇÃO"
+						style="font-size: 50%" />
+				</div>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="250" header="Menus"
+				collapsible="true" style="font-size: 70%">
+				<p:panelMenu>
+					<p:submenu label="Arquivos">
+						<p:menuitem value="Agendas" url="" />
+						<p:menuitem value="Atestados" url="" />
+						<p:menuitem value="Cartas" url="" />
+						<p:submenu label="Controles">
+							<p:menuitem value="Laboratórios" url="" />
+							<p:menuitem value="Retirada de Documentação" url="" />
+						</p:submenu>
+						<p:menuitem value="Consultas" url="" />
+						<p:menuitem value="Encaminhamentos" url="" />
+						<p:menuitem value="Orçamento(Somente Texto)" url="" />
+						<p:menuitem value="Receituarios" url="" />
+						<p:menuitem value="Termos" url="" />
+					</p:submenu>
+					<p:submenu label="Cadastros">
+						<p:submenu label="Agenda">
+							<p:menuitem value="Configurações" url="" />
+							<p:menuitem value="compromissos" url="" />
+							<p:menuitem value="Feriados" url="agendaFeriados.xhtml" />
+							<p:menuitem value="Tipos" url="agendaTipo.xhtml" />
+						</p:submenu>
+						<p:menuitem value="Bancos" url="bancos.xhtml" />
+						<p:submenu label="Cartas,Textos,Etiquetas,Envelopes">
+							<p:menuitem value="Cartas Padrões" url="" />
+							<p:menuitem value="Emails Padrões" url="" />
+							<p:menuitem value="Etiquetas" url="" />
+							<p:menuitem value="Envelopes" url="" />
+							<p:menuitem value="SMS Padrões" url="" />
+							<p:menuitem value="Termos Padrões" url="" />
+							<p:menuitem value="Textos Padrões" url="" />
+						</p:submenu>
+						<p:menuitem value="Clientes" url="Clientes.xhtml" />
+						<p:menuitem value="Convênios" url="Convenios.xhtml" />
+						<p:submenu label="Contas">
+							<p:menuitem value="Emissão de Boletos" url="" />
+							<p:menuitem value="Movimento de Caixa" url="ContasMovimentoCaixa.xhtml" />
+						</p:submenu>
+						<p:menuitem value="Dentistas(Profissionais da Clinica)" url="Dentistas.xhtml" />
+						<p:menuitem value="Dentistas e Protéticos" url="" />
+						<p:menuitem value="Empresa(Clinica)" url="" />
+						<p:submenu label="Estoque">
+							<p:menuitem value="Grupos" url="estoqueGrupos.xhtml" />
+							<p:menuitem value="Produtos" url="" />
+							<p:menuitem value="Unidades de Medidas" url="estoqueUnidadeMedida.xhtml" />
+						</p:submenu>
+						<p:submenu label="Fichas">
+							<p:menuitem value="Anamnese" url="" />
+							<p:menuitem value="Consultas" url="" />
+							<p:menuitem value="Categoria Controle de Atendimento" url="" />
+						</p:submenu>
+						<p:menuitem value="Fornecedores" url="" />
+						<p:menuitem value="Funcionarios" url="" />
+						<p:menuitem value="Mala Direta" url="" />
+						<p:menuitem value="Medicamentos(para Receituários)" url="" />
+						<p:submenu label="Procedimentos(Odontograma)">
+							<p:menuitem value="Especialidades" url="" />
+							<p:menuitem value="Indices" url="" />
+							<p:menuitem value="Procedimentos" url="" />
+							<p:menuitem value="Tabela de Preços" url="" />
+							<p:menuitem value="Tipo de Indices" url="" />
+						</p:submenu>
+						<p:menuitem value="Situação Cliente" url="" />
+						<p:menuitem value="Tipo Contrato" url="" />
+						<p:menuitem value="Tipo Recebimentos" url="" />
+						<p:menuitem value="Usuários" url="" />
+					</p:submenu>
+					<p:submenu label="Estoque">
+						<p:menuitem value="Entradas" url="" />
+						<p:menuitem value="Movimentação Simples(Ajuste de Estoque)" url="" />
+						<p:menuitem value="Saída para Clientes" url="" />
+						<p:menuitem value="Saida para Consumo" url="" />
+					</p:submenu>
+					<p:submenu label="Financeiro">
+						<p:menuitem value="Aditivo de Contrato" url="" />
+						<p:menuitem value="Autenticadora" url="" />
+						<p:submenu label="Boletos Bancarios">
+							<p:menuitem value="Correção Monetária" url="" />
+							<p:menuitem value="Impressão Local" url="" />
+							<p:menuitem value="Pré Impresso" url="" />
+						</p:submenu>
+						<p:menuitem value="Bloqueios de Movimento de Caixa" url="" />
+						<p:submenu label="Contas">
+							<p:menuitem value="Contas a Pagar" url="" />
+							<p:menuitem value="Contas a Receber" url="" />
+						</p:submenu>
+						<p:menuitem value="Comissão Dentistas" url="" />
+						<p:menuitem value="Controle de Cartões" url="" />
+						<p:submenu label="controle de Cheques">
+							<p:menuitem value="Emitidos" url="" />
+							<p:menuitem value="Recebidos" url="" />
+						</p:submenu>
+						<p:menuitem value="Créditos Adicionais" url="" />
+						<p:menuitem value="Débitos Adicionais" url="" />
+						<p:menuitem value="Movimento de Caixa" url="" />
+						<p:menuitem value="Nota Fiscal(Nfse)" url="" />
+						<p:submenu label="Recibos">
+							<p:menuitem value="Recebimento" url="" />
+							<p:menuitem value="Pagamento" url="" />
+						</p:submenu>
+						<p:menuitem value="Saldo Inicial" url="" />
+						<p:menuitem value="Transferências" url="" />
+					</p:submenu>
+					<p:submenu label="Relatórios">
+						<p:submenu label="Clientes">
+							<p:menuitem value="" url="" />
+						</p:submenu>
+						<p:submenu label="Estoque">
+							<p:menuitem value="" url="" />
+						</p:submenu>
+						<p:submenu label="Financeiro">
+							<p:menuitem value="" url="" />
+						</p:submenu>
+						<p:menuitem value="Dentistas e Protéticos" url="" />
+						<p:menuitem value="Envios de SMS" url="" />
+						<p:menuitem value="Extratos Dentistas" url="" />
+						<p:menuitem value="Fornecedores" url="" />
+						<p:menuitem value="Logs Sistema" url="" />
+						<p:menuitem value="Login de Usuarios" url="" />
+						<p:menuitem value="Procedimentos" url="" />
+					</p:submenu>
+					<p:submenu label="Utilitários">
+						<p:menuitem value="Atualização do Sistema" url="" />
+						<p:menuitem value="Configuração do Sistema" url="" />
+						<p:menuitem value="Backup" url="" />
+						<p:menuitem value="Correção de Erros" url="" />
+						<p:menuitem value="Agenda Telefônica" url="" />
+						<p:menuitem value="Mensagens" url="" />
+						<p:menuitem value="Calculadora" url="" />
+						<p:menuitem value="Lembretes" url="" />
+						<p:menuitem value="Web Browser" url="" />
+						<p:menuitem value="Atualizações do Sistema" url="" />
+						<p:menuitem value="Acesso Remoto Ao Suporte" url="" />
+						<p:menuitem value="Troca de Senha Master" url="" />
+						<p:menuitem value="Troca de Senha" url="" />
+					</p:submenu>
+					<p:submenu label="Ajuda">
+						<p:menuitem value="Ajuda" url="" />
+						<p:menuitem value="Manual Completo" url="" />
+						<p:menuitem value="sobre o Sistema" url="" />
+					</p:submenu>
+				</p:panelMenu>
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center" styleClass="ui-dialog-content">
+				<ui:insert name="centro" />
+			</p:layoutUnit>
+
+		</p:layout>
+
+	</h:body>
+
+</f:view>
+</html>
+

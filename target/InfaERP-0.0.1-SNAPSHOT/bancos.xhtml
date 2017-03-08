@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastro de Bancos</title>
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewAction action="#{bancosBeans.consultar}" />
+	</f:metadata>
+	<ui:composition template="/index.xhtml">
+		<ui:define name="centro">
+			<h:form id="frm">
+				<p:panel>
+					<div align="center">
+						<h:outputLabel value="Cadastro de Bancos"
+							style="align-self: center " />
+					</div>
+				</p:panel>
+				<br />
+
+				<p:messages id="messages" autoUpdate="true" closable="true"
+					style="font-size: 70%" />
+				<p:dataTable id="banco" var="banco" value="#{bancosBeans.bancos}"
+					rows="9" paginator="true" paginatorPosition="bottom"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15,20" style="font-size: 70%">
+					<p:column headerText="Codigo" width="25" sortBy="#{banco.id}">
+						<h:outputText value="#{banco.id}" />
+					</p:column>
+					<p:column headerText="Descrição" width="350"
+						sortBy="#{banco.descricao}">
+						<h:outputText value="#{banco.descricao}" />
+					</p:column>
+					<div align="center">
+						<p:column headerText="" width="2">
+							<p:commandButton icon="ui-icon-pencil" title="Editar"
+								actionListener="#{bancosBeans.dialogBancos()}" ajax="false">
+								<f:param name="id" value="#{banco.id}" />
+
+							</p:commandButton>
+						</p:column>
+					</div>
+					<p:column headerText="" width="2">
+						<p:commandButton icon="ui-icon-trash" title="Excluir" process="@this"
+							 action="#{bancosCadastroBeans.excluir}" ajax="false">
+							<f:setPropertyActionListener value="#{banco}"
+								target="#{bancosCadastroBeans.bancosSelecionado}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<br />
+				<p:panel style="border: 1">
+					<p:commandButton icon="ui-icon-plusthick" value="Inserir"
+						actionListener="#{bancosBeans.dialogBancos()}" ajax="false" />
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+
